@@ -2,10 +2,7 @@ package edu.pdx.cs410J.ferdousi;
 
 import edu.pdx.cs410J.AbstractPhoneBill;
 import edu.pdx.cs410J.AbstractPhoneCall;
-
-import java.text.ParseException;
 import java.util.*;
-import java.text.SimpleDateFormat;
 
 /**
  * The main class for the CS410J Phone Bill Project
@@ -67,6 +64,9 @@ public class Project1 {
 
         Collection co = bill.getPhoneCalls();
         System.out.println(co);
+    }else{
+        System.out.println("***Please enter valid date and time or Phone number***");
+        System.out.println("Date format: dd/m/yyyy or d/mm/yyyy\n Phone number format:nnn-nnn-nnnn (n={0-9})");
     }
 
     /*System.err.println("Missing command line arguments");
