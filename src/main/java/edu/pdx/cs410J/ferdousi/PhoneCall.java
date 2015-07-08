@@ -27,20 +27,33 @@ public class PhoneCall extends AbstractPhoneCall {
     }
 
 
-
+    /**
+     * Returns the phone number of the person who originated this phone
+     * call.
+     */
     public String getCaller(){
         return CallerPhoneNumber;
     }
 
+    /**
+     * Returns the phone number of the person who received this phone
+     * call.
+     */
     public String getCallee(){
         return CalleePhoneNumber;
     }
 
+    /**
+     * Returns the time that this phone call was originated.
+     */
     public String getStartTimeString(){
         return startTime;
 
     }
 
+    /**
+     * Returns the time that this phone call was ended
+     */
     public String getEndTimeString(){
         return endTime;
     }

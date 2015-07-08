@@ -10,7 +10,7 @@ import java.util.*;
 public class PhoneBill extends AbstractPhoneBill {
     private String name;
     private List<AbstractPhoneCall> callList;
-    //private Collection calls;
+
 
     public PhoneBill(){
         callList = new ArrayList<AbstractPhoneCall>();
@@ -25,11 +25,18 @@ public class PhoneBill extends AbstractPhoneBill {
         return name;
     }
 
+    /**
+     * Adds a phone call to this phone bill
+     */
     public void addPhoneCall(AbstractPhoneCall call){
         callList.add(call);
 
     }
 
+    /**
+     * Returns all of the phone calls (as instances of {@link
+     * AbstractPhoneCall}) in this phone bill
+     */
     public Collection getPhoneCalls(){
         return callList;
 
