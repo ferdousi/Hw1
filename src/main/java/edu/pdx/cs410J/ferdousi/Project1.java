@@ -56,7 +56,7 @@ public class Project1 {
          * @param read
          */
         public static void readme(String read) {
-            if (read.equalsIgnoreCase("-README") || read.equalsIgnoreCase("-print")) {
+            if (read.equalsIgnoreCase("-README")) {
                 System.out.println("Name: Syeda Sara Ferdousi");
                 System.out.println("Project 1: Phone Bill Application");
                 System.out.println("***********************");
@@ -74,41 +74,43 @@ public class Project1 {
 
         }
 
-        public static void main(String[] args) throws IOException, ParserException {
+    /**
+     *
+     * @param args
+     * @throws IOException
+     * @throws ParserException
+     */
+
+    public static void main(String[] args) throws IOException, ParserException {
     Class c = AbstractPhoneBill.class;  // Refer to one of Dave's classes so that we can be sure it is on the classpath
-    if(args.length<=0 || args.length>8){
-        System.err.println("The input must be in following order:" +
-                "-README or -print 'customer name' phone#1 phone#2 date time date time");
-    }else {
-        int i = 0;
-        String[] str = new String[args.length];
-        for (String arg : args) {
-            str[i] = arg;
-            ++i;
-        }
+        if(args.length==0){
+        System.err.println("No args passed");
+        System.exit(0);
+    }
+        if (args[0].equalsIgnoreCase("-README")) {
 
-        if (str[0].equalsIgnoreCase("-README")) {
-
-            readme(str[0]);
-        } else if(str[0].equalsIgnoreCase("-print")) {
-
-            boolean starttime = checkDate(str[4], str[5]);
-            boolean endtime = checkDate(str[6], str[7]);
+            readme(args[0]);
+        } else if(args[0].equalsIgnoreCase("-print") && args.length == 8){
 
 
-            String time1 = str[4].concat(" " + str[5]);
-            String time2 = str[6].concat(" " + str[7]);
+
+                boolean starttime = checkDate(args[4], args[5]);
+                boolean endtime = checkDate(args[6], args[7]);
 
 
-            boolean validity = checkphnum(str[2]);
-            boolean validity1 = checkphnum(str[3]);
+                String time1 = args[4].concat(" " + args[5]);
+                String time2 = args[6].concat(" " + args[7]);
 
-            if (starttime == true && endtime == true && validity == true && validity1 == true) {
 
-                AbstractPhoneCall call = new PhoneCall(args[2], args[3], time1, time2);
+                boolean validity = checkphnum(args[2]);
+                boolean validity1 = checkphnum(args[3]);
 
-                AbstractPhoneBill bill = new PhoneBill(args[1]);
-                bill.addPhoneCall(call);
+                if (starttime == true && endtime == true && validity == true && validity1 == true) {
+
+                    AbstractPhoneCall call = new PhoneCall(args[2], args[3], time1, time2);
+
+                    AbstractPhoneBill bill = new PhoneBill(args[1]);
+                    bill.addPhoneCall(call);
 
                 /*AbstractPhoneCall call2 = new PhoneCall("987-234-3445", "908-234-4567", "12/3/2015 6:40", "14/4/2012 6:70");
                 bill.addPhoneCall(call2);
@@ -121,46 +123,52 @@ public class Project1 {
                 String r = bill.toString();*/
                // System.out.println(r);
 
-                Collection co = bill.getPhoneCalls();
+                    Collection co = bill.getPhoneCalls();
 
-                System.out.println(co);
+                    System.out.println(co);
+
 
             }else {
                 System.out.println("***Please enter valid date and time or Phone number***");
                 System.out.println("Date format: dd/m/yyyy or d/mm/yyyy\n Phone number format:nnn-nnn-nnnn (n={0-9})");
             }
-        }else{
+        }else if(args.length!=7) {
+                System.out.println("Please enter all the required arguments");
+                System.exit(0);
+            }else{
 
-            boolean starttime1 = checkDate(str[3], str[4]);
-            boolean endtime1 = checkDate(str[5], str[6]);
+                boolean starttime1 = checkDate(args[3], args[4]);
+                boolean endtime1 = checkDate(args[5], args[6]);
 
 
-            String time1s = str[3].concat(" " + str[4]);
-            String time2s = str[5].concat(" " + str[6]);
+                String time1s = args[3].concat(" " + args[4]);
+                String time2s = args[5].concat(" " + args[6]);
 
 
-            boolean validitys = checkphnum(str[1]);
-            boolean validity2 = checkphnum(str[2]);
+                boolean validitys = checkphnum(args[1]);
+                boolean validity2 = checkphnum(args[2]);
 
-            if (starttime1 == true && endtime1 == true && validitys == true && validity2 == true) {
+                if (starttime1 == true && endtime1 == true && validitys == true && validity2 == true) {
 
-                AbstractPhoneCall call = new PhoneCall(args[1], args[2], time1s, time2s);
+                    AbstractPhoneCall call = new PhoneCall(args[1], args[2], time1s, time2s);
 
-                AbstractPhoneBill bill = new PhoneBill(args[0]);
-                bill.addPhoneCall(call);
-                String r = bill.toString();
-                System.out.println(r);
+                    AbstractPhoneBill bill = new PhoneBill(args[0]);
+                    bill.addPhoneCall(call);
+                    String r = bill.toString();
+                    System.out.println(r);
 
-                Collection co = bill.getPhoneCalls();
+                    Collection co = bill.getPhoneCalls();
 
-                System.out.println(co);
+                    System.out.println(co);
 
-            }
-            else {
-                System.out.println("***Please enter valid date and time or Phone number***");
-                System.out.println("Date format: dd/m/yyyy or d/mm/yyyy\n Phone number format:nnn-nnn-nnnn (n={0-9})");
-            }
+                }
+                else {
+                    System.out.println("***Please enter valid date and time or Phone number***");
+                    System.out.println("Date format: dd/m/yyyy or d/mm/yyyy\n Phone number format:nnn-nnn-nnnn (n={0-9})");
+                }
         }
+
+        System.exit(0);
 
 
 
@@ -176,11 +184,6 @@ public class Project1 {
             System.out.println(ab.toString());
             System.out.println(ab.getPhoneCalls());
 */
-
-            System.exit(0);
-
-
-        }
 
 
 
