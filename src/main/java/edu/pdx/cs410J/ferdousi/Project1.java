@@ -17,8 +17,8 @@ public class Project1 {
     /**
      * Method to validate phone numbers
      *
-     * @param phonenum
-     * @return
+     * @param phonenum phonenumber to validate
+     * @return returns a boolean
      */
     public static boolean checkphnum(String phonenum) {
 
@@ -33,9 +33,9 @@ public class Project1 {
     /**
      * Method to check the date and time formats
      *
-     * @param dates
-     * @param times
-     * @return
+     * @param dates dates to validate
+     * @param times times to validate
+     * @return returns a boolean
      */
     public static boolean checkDate(String dates, String times) {
         if (dates.matches("\\d\\d/\\d/\\d\\d\\d\\d") || dates.matches("\\d/\\d\\d/\\d\\d\\d\\d") || dates.matches("\\d\\d/\\d\\d/\\d\\d\\d\\d")) {
@@ -53,7 +53,7 @@ public class Project1 {
         /**
          * Method for the README.
          *
-         * @param read
+         * @param read passed parameter
          */
         public static void readme(String read) {
             if (read.equalsIgnoreCase("-README")) {
@@ -76,7 +76,7 @@ public class Project1 {
 
     /**
      *
-     * @param args
+     * @param args commandline arguments
      * @throws IOException
      * @throws ParserException
      */

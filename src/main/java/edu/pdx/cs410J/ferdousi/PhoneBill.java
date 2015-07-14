@@ -7,6 +7,11 @@ import java.util.*;
 /**
  * Created by saraferdousi on 6/27/15.
  */
+
+/**
+ * PhoneBill class
+ */
+
 public class PhoneBill extends AbstractPhoneBill {
     private String name;
     private List<AbstractPhoneCall> callList;
@@ -16,10 +21,20 @@ public class PhoneBill extends AbstractPhoneBill {
         callList = new ArrayList<AbstractPhoneCall>();
     }
 
+    /**
+     *
+     * @param name This is the name of customer
+     */
+
     public PhoneBill(String name){
         this();
         this.name = name;
     }
+
+    /**
+     *
+     * @return returns the customer name
+     */
 
     public String getCustomer(){
         return name;

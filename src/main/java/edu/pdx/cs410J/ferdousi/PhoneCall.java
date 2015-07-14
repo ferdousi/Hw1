@@ -16,7 +16,13 @@ public class PhoneCall extends AbstractPhoneCall {
     private String endTime;
     SimpleDateFormat ft = new SimpleDateFormat("mm/dd/yyy hh:mm");
 
-
+    /**
+     *
+     * @param CallerNumber the number that initiated the call
+     * @param CalleeNumber reciever's phone number
+     * @param stime starttime of the call
+     * @param etime endtime of the call
+     */
     public PhoneCall(String CallerNumber, String CalleeNumber, String stime, String etime){
         this.CallerPhoneNumber = CallerNumber;
         this.CalleePhoneNumber = CalleeNumber;
