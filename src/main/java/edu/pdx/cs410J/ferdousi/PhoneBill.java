@@ -2,7 +2,10 @@ package edu.pdx.cs410J.ferdousi;
 
 import edu.pdx.cs410J.AbstractPhoneBill;
 import edu.pdx.cs410J.AbstractPhoneCall;
+
+import java.lang.reflect.Array;
 import java.util.*;
+
 
 /**
  * Created by saraferdousi on 6/27/15.
@@ -15,10 +18,14 @@ import java.util.*;
 public class PhoneBill extends AbstractPhoneBill {
     private String name;
     private List<AbstractPhoneCall> callList;
+    //private List<PhoneCall> callList1;
 
 
     public PhoneBill(){
+        super();
         callList = new ArrayList<AbstractPhoneCall>();
+        //callList1 = new ArrayList<PhoneCall>();
+
     }
 
     /**
@@ -44,7 +51,12 @@ public class PhoneBill extends AbstractPhoneBill {
      * Adds a phone call to this phone bill
      */
     public void addPhoneCall(AbstractPhoneCall call){
+
+        //PhoneCall newcall = new PhoneCall(call);
+        //callList1.add(newcall);
+
         callList.add(call);
+
 
     }
 
@@ -53,6 +65,8 @@ public class PhoneBill extends AbstractPhoneBill {
      * AbstractPhoneCall}) in this phone bill
      */
     public Collection getPhoneCalls(){
+
+//        Collections.sort(callList1);
         return callList;
 
 
